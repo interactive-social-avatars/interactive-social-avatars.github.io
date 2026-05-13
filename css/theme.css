@@ -13,36 +13,36 @@
   --isa-blue-100: #dbeafe;     /* very light */
   --isa-cyan-300: #67e8f9;
   --isa-violet-300: #c4b5fd;
-  --isa-bg-1: #f0f7ff;
-  --isa-bg-2: #e0f2fe;
-  --isa-text: #1f2a44;
-  --isa-text-muted: #57607a;
-  --isa-card-bg: rgba(255, 255, 255, 0.55);
-  --isa-card-border: rgba(255, 255, 255, 0.8);
-  --isa-card-shadow: 0 10px 40px rgba(37, 99, 235, 0.08);
+  --isa-bg-1: #f5faff;            /* Very pale blue surface */
+  --isa-bg-2: #e7f1fc;            /* Slightly deeper blue near the bottom */
+  --isa-text: #111827;
+  --isa-text-muted: #6b7280;
+  --isa-card-bg: #ffffff;         /* Solid card surface */
+  --isa-card-border: #e5e7eb;
+  --isa-card-shadow: 0 4px 16px rgba(17, 24, 39, 0.06);
 }
 
-/* ----- Page background -------------------------------------------------- */
+/* ----- Page background ------------------------------------------------- */
+/* Calm, document-like surface. Keeps a hint of the brand by tinting the
+   gradient very subtly toward blue-grey. */
 html, body {
-  background:
-    radial-gradient(circle at 15% 10%, rgba(147, 197, 253, 0.5), transparent 45%),
-    radial-gradient(circle at 85% 25%, rgba(196, 181, 253, 0.4), transparent 50%),
-    radial-gradient(circle at 75% 90%, rgba(103, 232, 249, 0.4), transparent 45%),
-    linear-gradient(180deg, var(--isa-bg-1) 0%, var(--isa-bg-2) 100%);
+  background: linear-gradient(180deg, var(--isa-bg-1) 0%, var(--isa-bg-2) 100%);
   background-attachment: fixed;
   color: var(--isa-text);
 }
 
+/* Floating decorative blobs disabled in calm mode (kept in CSS so they
+   can be brought back by removing this rule). */
+.isa-blobs { display: none; }
+
 /* Smooth in-page anchor scrolling, with the fixed navbar accounted for.
-   Only `scroll-padding-top` is needed — `scroll-margin-top` would add to
-   it and leave too much of the previous section visible. Keep this value
-   close to the actual navbar height. */
+   `--navbar-h` is set by scrollspy.js on every layout/resize so this is
+   always the actual visual navbar height (works for both the desktop
+   sidebar and the mobile top bar). */
+:root { --navbar-h: 56px; }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 56px;
-}
-@media (max-width: 991.98px) {
-  html { scroll-padding-top: 50px; }
+  scroll-padding-top: calc(var(--navbar-h) + 8px);
 }
 
 body {
@@ -125,15 +125,42 @@ a:hover {
 }
 
 /* ----- Navbar ----------------------------------------------------------- */
+/* Sidebar / top bar uses a lighter, more opaque blue gradient so it sits
+   gently against the pale-blue page background. */
 .navbar.bg-primary,
 .navbar-dark.bg-primary {
-  background: linear-gradient(135deg,
-              rgba(37, 99, 235, 0.92),
-              rgba(11, 61, 145, 0.92)) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 24px rgba(11, 61, 145, 0.18);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(160deg, #60a5fa 0%, #3b82f6 60%, #2563eb 100%) !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* On smaller screens the navbar collapses to a single-row top bar that
+   overlays the page. Pin the hamburger to the right and let the brand /
+   pill truncate before they ever push the toggler to a new line. The
+   collapsed dropdown menu is then free to drop *below* the bar normally. */
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+    flex-shrink: 0;
+  }
+  .navbar-brand {
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* The standalone hamburger is hidden, so we have more room: keep the
+       brand at its default Bootstrap size (~1.25rem). */
+  }
+  /* Tighter on phones to prevent ellipsis. */
+  @media (max-width: 480px) {
+    .navbar-brand { font-size: 1rem; }
+  }
+  body {
+    /* Override iva.min.css's static 54px with our live value. */
+    padding-top: calc(var(--navbar-h) + 12px) !important;
+  }
 }
 
 .navbar .nav-link {
@@ -165,25 +192,80 @@ a:hover {
   color: #fff !important;
   font-weight: 700;
 }
-/* Small "current section" hint shown only on mobile (collapsed navbar) */
+
+/* Desktop sidebar: position the brand text neatly near the top (with
+   some breathing room) and vertically center the nav links in the
+   remaining space — matching the original GENEA template feel. */
+@media (min-width: 992px) {
+  #sideNav .navbar-brand {
+    display: block !important;
+    margin: 2.5rem 0 1.5rem 0 !important;
+    padding: 0 1rem !important;
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.25;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+  /* Nav menu vertically centered between brand and the bottom of the
+     sidebar (auto top + auto bottom = centered). */
+  #sideNav .navbar-collapse {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+  }
+}
+
+/* Small "current section" indicator shown only on mobile (collapsed navbar).
+   It's a button: tapping it opens the same dropdown as the hamburger,
+   so users can quick-jump to another section straight from the indicator. */
 .navbar .current-section {
   display: none;
+  align-items: center;
+  gap: 6px;
   font-size: 0.75rem;
   font-weight: 500;
-  opacity: 0.85;
-  margin-left: 8px;
-  padding: 2px 10px;
+  margin: 0 8px 0 auto;          /* push to the right, before the toggler */
+  padding: 4px 10px;
+  border: 0;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.18);
   color: #fff;
   white-space: nowrap;
-  max-width: 50vw;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
+  flex-shrink: 1;
+  max-width: 45vw;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.navbar .current-section:hover,
+.navbar .current-section:focus {
+  background: rgba(255, 255, 255, 0.28);
+  outline: none;
+}
+/* Hamburger icon after the text — taps the same dropdown. */
+.navbar .current-section::after {
+  content: "☰";
+  font-size: 1em;
+  line-height: 1;
+  opacity: 0.95;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+/* Subtle rotate when the menu is open. */
+.navbar .current-section[aria-expanded="true"]::after {
+  transform: rotate(90deg);
 }
 @media (max-width: 991.98px) {
   .navbar .current-section.has-section {
-    display: inline-block;
+    display: inline-flex;
+  }
+  /* The pill duplicates what the hamburger does — hide the hamburger
+     whenever the pill is on screen so the brand has more room. */
+  .navbar .current-section.has-section ~ .navbar-toggler {
+    display: none;
   }
 }
 
@@ -191,12 +273,10 @@ a:hover {
 .iva-section {
   position: relative;
   background: var(--isa-card-bg) !important;
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid var(--isa-card-border);
-  border-radius: 28px;
+  border-radius: 24px;
   box-shadow: var(--isa-card-shadow);
-  margin: 28px clamp(12px, 3vw, 48px);
+  margin: 24px clamp(12px, 3vw, 40px);
   overflow: hidden;
 }
 
@@ -208,6 +288,14 @@ section.iva-section {
   align-items: flex-start !important;
   padding-top: 1.5rem !important;
   padding-bottom: 2rem !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+@media (min-width: 992px) {
+  section.iva-section {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
 }
 
 /* Keep the home/header section a bit taller for visual impact. */
@@ -242,6 +330,20 @@ section.iva-section#home {
   font-style: italic;
 }
 
+/* ----- Body text: justified paragraphs --------------------------------- */
+.iva-section p,
+#invited-speakers .col-md-10 {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+/* Don't justify single-line paragraphs (e.g. dates, captions) on mobile —
+   it can produce ugly oversized gaps. */
+@media (max-width: 575.98px) {
+  .iva-section p,
+  #invited-speakers .col-md-10 { text-align: left; }
+}
+
 /* ----- Schedule rows --------------------------------------------------- */
 .schedule-row {
   padding: 10px 4px !important;
@@ -256,15 +358,13 @@ section.iva-section#home {
 /* ----- Speaker / organiser portrait placeholders ---------------------- */
 .placeholder-note {
   display: inline-block;
-  padding: 24px 16px;
+  padding: 22px 16px;
   width: 100%;
   text-align: center;
-  background: linear-gradient(135deg,
-              rgba(147, 197, 253, 0.25),
-              rgba(196, 181, 253, 0.25));
-  border-radius: 18px;
-  border: 1px dashed rgba(37, 99, 235, 0.3);
-  color: var(--isa-blue-900);
+  background: var(--isa-bg-1);
+  border-radius: 14px;
+  border: 1px dashed var(--isa-card-border);
+  color: var(--isa-text-muted);
   font-style: italic;
   font-size: 0.85em;
   margin: 0;
@@ -272,18 +372,16 @@ section.iva-section#home {
 
 /* Real photos (when added) get matching rounded styling */
 .iva-section img {
-  border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(11, 61, 145, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.08);
 }
 
 /* ----- Announcement box reskin ---------------------------------------- */
 .announcement-box {
-  background: linear-gradient(135deg,
-              rgba(147, 197, 253, 0.35),
-              rgba(196, 181, 253, 0.25)) !important;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
-  border-radius: 18px !important;
+  background: #eff6ff !important;        /* very pale blue */
+  border: 1px solid #dbeafe !important;
+  backdrop-filter: none !important;
+  border-radius: 14px !important;
   color: var(--isa-text) !important;
 }
 .announcement-box .badge {
@@ -308,10 +406,10 @@ code {
 
 /* Subtle highlight for the section currently in view */
 .iva-section.is-current {
-  border-color: rgba(37, 99, 235, 0.35);
+  border-color: var(--isa-blue-300);
   box-shadow:
-    0 0 0 1px rgba(37, 99, 235, 0.15) inset,
-    0 12px 50px rgba(37, 99, 235, 0.18);
+    0 0 0 1px rgba(37, 99, 235, 0.10) inset,
+    0 6px 24px rgba(37, 99, 235, 0.08);
   transition: box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
@@ -321,4 +419,81 @@ code {
     margin: 16px 8px;
     border-radius: 20px;
   }
+}
+
+/* ============================================================
+   Optional patterns borrowed from the GENEA Challenge UI.
+   Use the classes below in index.html as needed.
+   ============================================================ */
+
+/* --- Organiser cards (apply on the existing .col-sm-12.col-md-6
+   wrappers inside #organising-committee — no markup change needed) --- */
+#organising-committee .col-md-6 > .row {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  padding: 14px;
+  margin: 0 0 10px 0;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+#organising-committee .col-md-6 > .row:hover {
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
+}
+#organising-committee .col-md-6 > .row a {
+  color: var(--isa-text);
+  transition: color 0.2s ease;
+}
+#organising-committee .col-md-6 > .row:hover a {
+  color: var(--isa-blue-700);
+}
+/* Hide the now-redundant <hr> separators inside the card grid */
+#organising-committee .col-md-6 > hr {
+  display: none;
+}
+
+/* --- CTA button: pill, white-on-blue, hover inverts -------- */
+.cta-button {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: var(--isa-blue-700);
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.cta-button:hover,
+.cta-button:focus {
+  background: #fff;
+  color: var(--isa-blue-900) !important;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.3);
+  transform: translateY(-1px);
+  text-decoration: none;
+  outline: none;
+}
+.cta-button.outline {
+  background: transparent;
+  color: var(--isa-blue-700) !important;
+  box-shadow: 0 0 0 2px var(--isa-blue-700) inset;
+}
+.cta-button.outline:hover {
+  background: var(--isa-blue-700);
+  color: #fff !important;
+}
+
+/* --- Deadline badge: small red pill --------------------- */
+.badge-deadline {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #dc2626;
+  color: #fff !important;
+  font-size: 0.78em;
+  font-weight: 700;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  margin-left: 6px;
 }

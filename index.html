@@ -10,6 +10,13 @@
 
   <title>Interactive Social Avatars — ECCV 2026 Workshop</title>
 
+  <!-- Favicon (drop the file(s) into /img/, then uncomment the lines you have) -->
+  <!-- <link rel="icon" type="image/svg+xml" href="img/favicon.svg"> -->
+  <!-- <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png"> -->
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png"> -->
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png"> -->
+  <!-- <link rel="shortcut icon" href="img/favicon.ico"> -->
+
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,9 +45,12 @@
   <!-- ========================================================== -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">Interactive Social Avatars — ECCV 2026</span>
+      <span class="d-block">Interactive Social Avatars (ECCV 2026)</span>
     </a>
-    <span class="current-section" id="current-section-label" aria-live="polite"></span>
+    <button class="current-section" id="current-section-label" type="button"
+            data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-live="polite"></button>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -69,7 +79,7 @@
     <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="home">
       <div class="w-100">
         <div class="row">
-          <div class="col-md-9 col-sm-12">
+          <div class="col-12">
 
             <!-- TODO: Replace with workshop logo -->
             <!--
@@ -84,6 +94,12 @@
             <div class="subheading mb-4">
               An ECCV 2026 Workshop on motion-level synthesis, gesture generation, and gesture
               understanding for interactive virtual humans.
+            </div>
+
+            <!-- TODO: Replace placeholder hero image -->
+            <div class="row justify-content-center mb-4">
+              <!-- <img src="img/hero.png" class="img-fluid rounded mt-2" width="300" alt=""> -->
+              <p class="placeholder-note">[Hero image placeholder — add to <code>img/</code>]</p>
             </div>
 
             <p class="mb-4">
@@ -118,19 +134,12 @@
             </p>
             -->
 
-            <!-- TODO: Replace placeholder hero image -->
-            <div class="row justify-content-center">
-              <!-- <img src="img/hero.png" class="img-fluid rounded mt-2" width="300" alt=""> -->
-              <p class="placeholder-note">[Hero image placeholder — add to <code>img/</code>]</p>
+            <p class="mt-4">
+              <a href="#call-for-papers" class="cta-button">Submit a paper</a>
+              <a href="#challenge" class="cta-button outline" style="margin-left: 10px;">Join the challenge</a>
+            </p>
             </div>
 
-          </div>
-          <div class="col-md-3 d-none d-md-block">
-            <!-- Optional social timeline -->
-            <!--
-            <a class="twitter-timeline" href="https://twitter.com/...">Tweets</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            -->
           </div>
         </div>
       </div>
