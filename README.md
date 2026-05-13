@@ -18,7 +18,6 @@ Generation Challenge**.
 │   └── scrollspy.js    # Active-section highlight + smooth scroll
 ├── vendor/             # Bootstrap 4 + jQuery (only files actually used)
 ├── img/                # Workshop logo, speaker / organiser portraits
-├── EDITING.md          # Step-by-step guide for updating each section
 ├── README.md           # This file
 └── .gitignore
 ```
@@ -29,9 +28,30 @@ directly (the repo name `*.github.io` makes Pages publish from the root of
 
 ## Editing the website
 
-See **[EDITING.md](EDITING.md)** for a per-section guide (adding speakers,
-organisers, accepted papers, dates, the announcement banner, images, etc.)
-and for changing the colour theme.
+All content lives in `index.html`. The page is split into nine sections,
+each with a clear banner comment and a unique `id`:
+
+| Section ID            | What's in it                                |
+|-----------------------|---------------------------------------------|
+| `home`                | Title, subtitle, intro, hero image          |
+| `important-dates`     | Submission / camera-ready / event dates     |
+| `call-for-papers`     | Topics, submission types, OpenReview link   |
+| `challenge`           | GENEA Challenge overview, dataset, links    |
+| `programme`           | Workshop schedule rows                      |
+| `invited-speakers`    | Speaker bios + photos                       |
+| `accepted-papers`     | List of accepted papers (after acceptance)  |
+| `organising-committee`| Workshop and challenge organisers           |
+| `contact`             | Contact email, social links                 |
+
+To add a speaker, organiser, paper, date, or schedule row, copy one of the
+existing entries inside the relevant section and edit the fields.
+The nav bar entries match the section `id`s, so adding a new section just
+needs a matching `<li>` in the `<nav>`.
+
+To change the colour theme, edit the CSS variables at the top of
+`css/theme.css` (`--isa-blue-*`, `--isa-cyan-300`, `--isa-violet-300`).
+The four background "blob" shapes are defined just below as
+`.isa-blob.b1` … `.b4`.
 
 ## Local preview
 
