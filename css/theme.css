@@ -1,0 +1,324 @@
+/* ==========================================================================
+   Interactive Social Avatars — Theme overrides
+   - Blue / sky-blue palette (overrides the GENEA burgundy)
+   - Modern floating oval "blobs" + glassmorphism cards
+   - Add to index.html *after* css/iva.min.css
+   ========================================================================== */
+
+:root {
+  --isa-blue-900: #0b3d91;     /* deep blue */
+  --isa-blue-700: #2563eb;     /* primary blue */
+  --isa-blue-500: #3b82f6;     /* mid blue */
+  --isa-blue-300: #93c5fd;     /* light blue */
+  --isa-blue-100: #dbeafe;     /* very light */
+  --isa-cyan-300: #67e8f9;
+  --isa-violet-300: #c4b5fd;
+  --isa-bg-1: #f0f7ff;
+  --isa-bg-2: #e0f2fe;
+  --isa-text: #1f2a44;
+  --isa-text-muted: #57607a;
+  --isa-card-bg: rgba(255, 255, 255, 0.55);
+  --isa-card-border: rgba(255, 255, 255, 0.8);
+  --isa-card-shadow: 0 10px 40px rgba(37, 99, 235, 0.08);
+}
+
+/* ----- Page background -------------------------------------------------- */
+html, body {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(147, 197, 253, 0.5), transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(196, 181, 253, 0.4), transparent 50%),
+    radial-gradient(circle at 75% 90%, rgba(103, 232, 249, 0.4), transparent 45%),
+    linear-gradient(180deg, var(--isa-bg-1) 0%, var(--isa-bg-2) 100%);
+  background-attachment: fixed;
+  color: var(--isa-text);
+}
+
+/* Smooth in-page anchor scrolling, with the fixed navbar accounted for.
+   Only `scroll-padding-top` is needed — `scroll-margin-top` would add to
+   it and leave too much of the previous section visible. Keep this value
+   close to the actual navbar height. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+}
+@media (max-width: 991.98px) {
+  html { scroll-padding-top: 50px; }
+}
+
+body {
+  font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--isa-blue-900);
+  font-family: "Saira Extra Condensed", "Muli", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+p, li {
+  color: var(--isa-text);
+}
+
+a {
+  color: var(--isa-blue-700);
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--isa-blue-900);
+  text-decoration: none;
+}
+
+/* ----- Floating decorative blobs --------------------------------------- */
+.isa-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.isa-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.55;
+  animation: isa-float 22s ease-in-out infinite;
+}
+
+.isa-blob.b1 {
+  width: 520px; height: 420px;
+  top: -120px; left: -80px;
+  background: radial-gradient(circle, var(--isa-blue-300), transparent 70%);
+  animation-delay: 0s;
+}
+.isa-blob.b2 {
+  width: 460px; height: 460px;
+  top: 30%; right: -120px;
+  background: radial-gradient(circle, var(--isa-violet-300), transparent 70%);
+  animation-delay: -6s;
+  animation-duration: 28s;
+}
+.isa-blob.b3 {
+  width: 600px; height: 380px;
+  bottom: -120px; left: 20%;
+  background: radial-gradient(circle, var(--isa-cyan-300), transparent 70%);
+  animation-delay: -12s;
+  animation-duration: 26s;
+}
+.isa-blob.b4 {
+  width: 360px; height: 360px;
+  top: 60%; left: -100px;
+  background: radial-gradient(circle, var(--isa-blue-100), transparent 70%);
+  animation-delay: -3s;
+  animation-duration: 30s;
+}
+
+@keyframes isa-float {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(40px, -30px) scale(1.05); }
+  66%  { transform: translate(-30px, 40px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .isa-blob { animation: none; }
+}
+
+/* ----- Navbar ----------------------------------------------------------- */
+.navbar.bg-primary,
+.navbar-dark.bg-primary {
+  background: linear-gradient(135deg,
+              rgba(37, 99, 235, 0.92),
+              rgba(11, 61, 145, 0.92)) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(11, 61, 145, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  position: relative;
+  padding: 6px 14px !important;
+  margin: 2px 4px;
+  border-radius: 999px;
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.navbar .nav-link:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+/* Active section highlight (set by JS scrollspy) */
+.navbar .nav-link.active {
+  color: #fff !important;
+  background: linear-gradient(135deg,
+              rgba(255, 255, 255, 0.22),
+              rgba(255, 255, 255, 0.08));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset,
+    0 4px 18px rgba(103, 232, 249, 0.35);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.navbar-brand {
+  color: #fff !important;
+  font-weight: 700;
+}
+/* Small "current section" hint shown only on mobile (collapsed navbar) */
+.navbar .current-section {
+  display: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-left: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  white-space: nowrap;
+  max-width: 50vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 991.98px) {
+  .navbar .current-section.has-section {
+    display: inline-block;
+  }
+}
+
+/* ----- Sections as glass cards ----------------------------------------- */
+.iva-section {
+  position: relative;
+  background: var(--isa-card-bg) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--isa-card-border);
+  border-radius: 28px;
+  box-shadow: var(--isa-card-shadow);
+  margin: 28px clamp(12px, 3vw, 48px);
+  overflow: hidden;
+}
+
+/* Override the GENEA template defaults that force every section to be
+   viewport-tall and vertically center its content. We want the heading
+   pinned to the top of each card, and the card to grow with its content. */
+section.iva-section {
+  min-height: 0 !important;
+  align-items: flex-start !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* Keep the home/header section a bit taller for visual impact. */
+section.iva-section#home {
+  min-height: 70vh;
+  align-items: center !important;
+}
+
+/* Hide the dividing <hr>s now that sections are floating cards */
+.container-fluid > hr.m-0 {
+  display: none;
+}
+
+/* Section heading underline accent */
+.iva-section h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.iva-section h2::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 64px; height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--isa-blue-700), var(--isa-cyan-300));
+}
+
+/* ----- Subheadings ----------------------------------------------------- */
+.subheading {
+  color: var(--isa-text-muted);
+  font-style: italic;
+}
+
+/* ----- Schedule rows --------------------------------------------------- */
+.schedule-row {
+  padding: 10px 4px !important;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.08) !important;
+  transition: background 0.2s ease;
+  border-radius: 10px;
+}
+.schedule-row:hover {
+  background: rgba(147, 197, 253, 0.18);
+}
+
+/* ----- Speaker / organiser portrait placeholders ---------------------- */
+.placeholder-note {
+  display: inline-block;
+  padding: 24px 16px;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg,
+              rgba(147, 197, 253, 0.25),
+              rgba(196, 181, 253, 0.25));
+  border-radius: 18px;
+  border: 1px dashed rgba(37, 99, 235, 0.3);
+  color: var(--isa-blue-900);
+  font-style: italic;
+  font-size: 0.85em;
+  margin: 0;
+}
+
+/* Real photos (when added) get matching rounded styling */
+.iva-section img {
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(11, 61, 145, 0.12);
+}
+
+/* ----- Announcement box reskin ---------------------------------------- */
+.announcement-box {
+  background: linear-gradient(135deg,
+              rgba(147, 197, 253, 0.35),
+              rgba(196, 181, 253, 0.25)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 18px !important;
+  color: var(--isa-text) !important;
+}
+.announcement-box .badge {
+  background: var(--isa-blue-700) !important;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+/* ----- Lists & links inside sections ---------------------------------- */
+.iva-section ul li,
+.iva-section ol li {
+  margin-bottom: 6px;
+}
+
+/* ----- Code & inline tags --------------------------------------------- */
+code {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--isa-blue-900);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Subtle highlight for the section currently in view */
+.iva-section.is-current {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(37, 99, 235, 0.15) inset,
+    0 12px 50px rgba(37, 99, 235, 0.18);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* ----- Responsive tweaks --------------------------------------------- */
+@media (max-width: 768px) {
+  .iva-section {
+    margin: 16px 8px;
+    border-radius: 20px;
+  }
+}

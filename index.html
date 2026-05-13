@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="Interactive Social Avatars Workshop with the 4th GENEA Gesture Generation Challenge — ECCV 2026.">
+  <meta name="author" content="Interactive Social Avatars Workshop Organizers">
+
+  <title>Interactive Social Avatars — ECCV 2026 Workshop</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/iva.min.css" rel="stylesheet">
+  <!-- Workshop theme overrides (blue palette + glassmorphism + floating blobs) -->
+  <link href="css/theme.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+
+  <!-- Decorative floating blobs (fixed, behind everything) -->
+  <div class="isa-blobs" aria-hidden="true">
+    <div class="isa-blob b1"></div>
+    <div class="isa-blob b2"></div>
+    <div class="isa-blob b3"></div>
+    <div class="isa-blob b4"></div>
+  </div>
+
+  <!-- ========================================================== -->
+  <!-- Navigation                                                  -->
+  <!-- ========================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Interactive Social Avatars — ECCV 2026</span>
+    </a>
+    <span class="current-section" id="current-section-label" aria-live="polite"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#important-dates">Important Dates</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#call-for-papers">Call for Papers</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#challenge">GENEA Challenge</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#programme">Programme</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#invited-speakers">Invited Speakers</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#accepted-papers">Accepted Papers</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#organising-committee">Organisers</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid p-0">
+
+    <!-- ========================================================== -->
+    <!-- Home / Header                                               -->
+    <!-- ========================================================== -->
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="home">
+      <div class="w-100">
+        <div class="row">
+          <div class="col-md-9 col-sm-12">
+
+            <!-- TODO: Replace with workshop logo -->
+            <!--
+            <div>
+              <img src="img/logo.png" class="img-fluid rounded mt-2" width="300" alt="Interactive Social Avatars">
+            </div>
+            -->
+
+            <h1 class="mb-2">Interactive Social Avatars</h1>
+            <h3 class="mb-3">with the 4th GENEA Gesture Generation Challenge</h3>
+
+            <div class="subheading mb-4">
+              An ECCV 2026 Workshop on motion-level synthesis, gesture generation, and gesture
+              understanding for interactive virtual humans.
+            </div>
+
+            <p class="mb-4">
+              <b>Official <a href="https://eccv.ecva.net/" target="_blank">ECCV 2026</a> Workshop —
+              Date TBD (in person)</b><br><br>
+
+              The <b>Interactive Social Avatars</b> workshop brings together researchers working on
+              virtual human agents that can participate in interactive, dyadic conversation by
+              generating coherent, expressive, and contingent multimodal behavior. Unlike
+              video-centric approaches, we focus on <b>motion-level synthesis</b>: generating 3D body
+              pose, gesture, and facial motion in human representations that enable real-time
+              rendering flexibility.
+              <br><br>
+
+              We also host the <b>4th GENEA Challenge</b>, a community-driven benchmark for
+              speech-driven 3D gesture generation, this year built on the recently released
+              4000-hour dyadic <b>Seamless Interaction Dataset</b>.
+            </p>
+
+            <!-- Announcement banner (uncomment and update as needed) -->
+            <!--
+            <p class="mb-5">
+            <div class="col-sm-12 col-md-12">
+              <div class="row">
+                <div class="announcement-box">
+                  <span class="badge">Announcement</span><br><br>
+                  📢 <strong>Call for Papers</strong> is now open! Submission deadline:
+                  <strong>TBD</strong>. <a href="#call-for-papers">See details</a>.
+                </div>
+              </div>
+            </div>
+            </p>
+            -->
+
+            <!-- TODO: Replace placeholder hero image -->
+            <div class="row justify-content-center">
+              <!-- <img src="img/hero.png" class="img-fluid rounded mt-2" width="300" alt=""> -->
+              <p class="placeholder-note">[Hero image placeholder — add to <code>img/</code>]</p>
+            </div>
+
+          </div>
+          <div class="col-md-3 d-none d-md-block">
+            <!-- Optional social timeline -->
+            <!--
+            <a class="twitter-timeline" href="https://twitter.com/...">Tweets</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================== -->
+    <!-- Important Dates                                             -->
+    <!-- ========================================================== -->
+    <hr class="m-0">
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="important-dates">
+      <div class="w-100">
+        <h2 class="mb-5">Important Dates</h2>
+        <p>All deadlines are at the end of day,
+          <a href="https://en.wikipedia.org/wiki/Anywhere_on_Earth">Anywhere on Earth (AoE)</a>.
+        </p>
+
+        <div class="row schedule-row">
+          <div class="col-md-3"><b>TBD</b></div>
+          <div class="col-md-9">Paper submission deadline</div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-3"><b>TBD</b></div>
+          <div class="col-md-9">Notification of paper acceptance</div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-3"><b>TBD</b></div>
+          <div class="col-md-9">Camera-ready deadline</div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-3"><b>TBD</b></div>
+          <div class="col-md-9">GENEA Challenge — release of training data</div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-3"><b>TBD</b></div>
+          <div class="col-md-9">GENEA Challenge — submission deadline</div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-3"><b>TBD</b></div>
+          <div class="col-md-9">Workshop day at ECCV 2026</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================== -->
+    <!-- Call for Papers                                             -->
+    <!-- ========================================================== -->
+    <hr class="m-0">
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="call-for-papers">
+      <div class="w-100">
+        <h2 class="mb-5">Call for Papers</h2>
+
+        <div class="iva-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="iva-content">
+
+            <p>
+              We invite original research contributions on <b>interactive social avatars</b>:
+              virtual humans that perceive and generate contingent multimodal behavior in dyadic
+              interaction.
+            </p>
+
+            <h3>✨ Topics of Interest</h3>
+            <p>Topics of interest include (but are not limited to):</p>
+            <ul>
+              <li>3D human capture and reconstruction in interactive settings</li>
+              <li>Audio-visual-driven face and body animation</li>
+              <li>Co-speech gesture and full-body motion generation</li>
+              <li>Gaze and facial expression modeling</li>
+              <li>Multimodal representations for interaction</li>
+              <li>Streaming and low-latency systems for avatar synthesis</li>
+              <li>Proactive social behavior modeling (anticipatory and intent-driven actions)</li>
+              <li>Gesture understanding: perception, semantic alignment with speech, social cues</li>
+              <li>Datasets, benchmarks, and standardized evaluation protocols for dyadic interaction</li>
+              <li>Identity, fairness, privacy, and safety in avatar-mediated communication</li>
+            </ul>
+
+            <h3>📝 Submission Types</h3>
+            <p>We welcome:</p>
+            <ul>
+              <li><b>Long papers</b> — TBD pages</li>
+              <li><b>Short papers / extended abstracts</b> — TBD pages</li>
+            </ul>
+            <p>
+              All submissions must follow the
+              <a href="https://eccv.ecva.net/" target="_blank">ECCV 2026 author guidelines</a>
+              and be prepared for <b>double-blind review</b>.
+            </p>
+
+            <p><b>Submission site:</b> Coming soon.</p>
+
+            <p class="placeholder-note">
+              [More details — page limits, formatting, OpenReview link, proceedings policy — to be
+              added.]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================== -->
+    <!-- GENEA Challenge                                             -->
+    <!-- ========================================================== -->
+    <hr class="m-0">
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="challenge">
+      <div class="w-100">
+        <h2 class="mb-5">4th GENEA Gesture Generation Challenge</h2>
+
+        <p>
+          Evaluation remains a significant bottleneck in research on interactive social avatars.
+          To help address this, the workshop hosts the <b>4th GENEA Challenge</b>, an established
+          community-driven initiative for advancing speech-driven 3D gesture generation.
+        </p>
+
+        <p>
+          This year's challenge focuses on the recently released 4000-hour dyadic
+          <b>Seamless Interaction Dataset</b>. Participants submit generated motion on a private
+          test set, and organizers conduct large-scale, crowdsourced human evaluation to create a
+          standardized state-of-the-art benchmark, assessing motion realism and appropriateness for
+          the speech using established protocols, with extensions for dyadic adaptation and
+          semantic alignment.
+        </p>
+
+        <h4 class="mt-4">Anticipated Impact</h4>
+        <ol>
+          <li>Foster the first series of generative models built on the Seamless Interaction Dataset.</li>
+          <li>Provide a robust benchmark for state-of-the-art gesture generation.</li>
+          <li>Enable the development of automated metrics using collected human preference votes.</li>
+        </ol>
+
+        <h4 class="mt-4">Get Involved</h4>
+        <p class="placeholder-note">
+          [Challenge website, registration link, dataset access instructions, evaluation protocol,
+          and timeline — to be added.]
+        </p>
+
+        <h4 class="mt-4">Previous GENEA Challenges</h4>
+        <ul>
+          <li><a href="https://genea-workshop.github.io/" target="_blank">GENEA Workshop &amp; Challenge homepage</a></li>
+          <li>[Add links to GENEA 2020, 2022, 2023 challenge result pages.]</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- ========================================================== -->
+    <!-- Workshop Programme                                          -->
+    <!-- ========================================================== -->
+    <hr class="m-0">
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="programme">
+      <div class="w-100">
+        <h2 class="mb-5">Workshop Programme</h2>
+        <p class="placeholder-note">Tentative full-day schedule. Times in workshop venue local timezone (TBD).</p>
+
+        <div class="row schedule-row">
+          <div class="col-md-2">09:00 – 09:10</div>
+          <div class="col-md-10"><b>Introduction and Opening Remarks</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">09:10 – 09:50</div>
+          <div class="col-md-10"><b>Keynote I + Q&amp;A</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">09:50 – 10:30</div>
+          <div class="col-md-10"><b>Keynote II + Q&amp;A</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">10:30 – 10:40</div>
+          <div class="col-md-10"><b>Coffee Break</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">10:40 – 11:20</div>
+          <div class="col-md-10"><b>Keynote III + Q&amp;A</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">11:20 – 11:35</div>
+          <div class="col-md-10"><b>GENEA Challenge: Opening Remarks and Overview</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">11:35 – 12:20</div>
+          <div class="col-md-10"><b>GENEA Challenge: Spotlight Talks (3 × 10 min) + Q&amp;A</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">12:20 – 13:00</div>
+          <div class="col-md-10"><b>Lunch Break</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">13:00 – 13:45</div>
+          <div class="col-md-10"><b>GENEA Challenge: Spotlight Talks (3 × 10 min) + Q&amp;A</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">13:45 – 14:15</div>
+          <div class="col-md-10"><b>Keynote IV + Q&amp;A</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">14:15 – 14:25</div>
+          <div class="col-md-10"><b>Coffee Break</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">14:25 – 15:05</div>
+          <div class="col-md-10"><b>Keynote V + Q&amp;A</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">15:05 – 16:30</div>
+          <div class="col-md-10"><b>Poster Session</b></div>
+        </div>
+        <div class="row schedule-row">
+          <div class="col-md-2">16:30 – 17:30</div>
+          <div class="col-md-10"><b>Panel Discussion</b></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================== -->
+    <!-- Invited Speakers                                            -->
+    <!-- ========================================================== -->
+    <hr class="m-0">
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="invited-speakers">
+      <div class="w-100">
+        <h2 class="mb-5">Invited Speakers</h2>
+
+        <!-- Speaker template — duplicate per speaker -->
+
+        <h3 class="mt-4" id="zisserman">
+          <a href="https://www.robots.ox.ac.uk/~az/" target="_blank">Prof. Andrew Zisserman</a>
+          <small class="text-muted">[Confirmed]</small>
+        </h3>
+        <div class="row">
+          <div class="col-md-2">
+            <!-- <img src="img/zisserman.jpg" class="img-fluid rounded" alt="Andrew Zisserman"> -->
+            <p class="placeholder-note">[photo]</p>
+          </div>
+          <div class="col-md-10">
+            <h5>Affiliation</h5>
+            University of Oxford, UK
+            <h5 class="mt-2">Biography</h5>
+            Andrew Zisserman is a Royal Society Research Professor in the Department of Engineering
+            Science at the University of Oxford, where he co-leads the Visual Geometry Group (VGG).
+            His recent research focuses on video understanding, including recognizing human actions
+            and gestures, movie understanding, and releasing datasets such as Kinetics. He has
+            authored over 800 papers and his work has received best paper and "test of time" awards
+            at international conferences.
+          </div>
+        </div>
+
+        <h3 class="mt-5" id="morency">
+          <a href="https://www.cs.cmu.edu/~morency/" target="_blank">Prof. Louis-Philippe Morency</a>
+          <small class="text-muted">[Confirmed]</small>
+        </h3>
+        <div class="row">
+          <div class="col-md-2">
+            <!-- <img src="img/morency.jpg" class="img-fluid rounded" alt="Louis-Philippe Morency"> -->
+            <p class="placeholder-note">[photo]</p>
+          </div>
+          <div class="col-md-10">
+            <h5>Affiliation</h5>
+            Carnegie Mellon University, Language Technologies Institute, USA
+            <h5 class="mt-2">Biography</h5>
+            Louis-Philippe Morency is a tenure-track Faculty at the CMU Language Technologies
+            Institute, where he leads the Multimodal Communication and Machine Learning Laboratory
+            (MultiComp Lab). His research focuses on building computational foundations for
+            analyzing, recognizing, and predicting subtle human communicative behaviors during
+            social interactions, with multimodal machine learning at the technical core.
+          </div>
+        </div>
+
+        <h3 class="mt-5" id="varol">
+          <a href="https://www.di.ens.fr/~varol/" target="_blank">Prof. Gül Varol</a>
+          <small class="text-muted">[Confirmed]</small>
+        </h3>
+        <div class="row">
+          <div class="col-md-2">
+            <!-- <img src="img/varol.jpg" class="img-fluid rounded" alt="Gul Varol"> -->
+            <p class="placeholder-note">[photo]</p>
+          </div>
+          <div class="col-md-10">
+            <h5>Affiliation</h5>
+            École des Ponts ParisTech, France
+            <h5 class="mt-2">Biography</h5>
+            Gül Varol is a permanent researcher in the IMAGINE team at École des Ponts ParisTech.
+            She received her PhD from the WILLOW team of Inria Paris and École Normale Supérieure
+            (ENS); her thesis was awarded by ELLIS and AFRIF. She served as a Program Chair at
+            ECCV'24. Her research interests cover vision and language applications, including video
+            representation learning, human motion synthesis, and sign languages.
+          </div>
+        </div>
+
+        <h3 class="mt-5" id="pavlakos">
+          <a href="https://geopavlakos.github.io/" target="_blank">Prof. Georgios Pavlakos</a>
+          <small class="text-muted">[Tentative]</small>
+        </h3>
+        <div class="row">
+          <div class="col-md-2">
+            <!-- <img src="img/pavlakos.jpg" class="img-fluid rounded" alt="Georgios Pavlakos"> -->
+            <p class="placeholder-note">[photo]</p>
+          </div>
+          <div class="col-md-10">
+            <h5>Affiliation</h5>
+            University of Texas at Austin, USA
+            <h5 class="mt-2">Biography</h5>
+            Georgios Pavlakos is an Assistant Professor in the Department of Computer Science at
+            UT Austin. He was previously a postdoctoral researcher at UC Berkeley and received his
+            PhD from the University of Pennsylvania, where his dissertation received the Morris and
+            Dorothy Rubinoff Award. His research is at the intersection of computer vision, machine
+            learning, and robotics, with a focus on 3D human pose and shape estimation, visual
+            understanding, and embodied AI systems.
+          </div>
+        </div>
+
+        <h3 class="mt-5" id="cassell">
+          <a href="https://www.cs.cmu.edu/~justine/" target="_blank">Prof. Justine Cassell</a>
+          <small class="text-muted">[Tentative]</small>
+        </h3>
+        <div class="row">
+          <div class="col-md-2">
+            <!-- <img src="img/cassell.jpg" class="img-fluid rounded" alt="Justine Cassell"> -->
+            <p class="placeholder-note">[photo]</p>
+          </div>
+          <div class="col-md-10">
+            <h5>Affiliation</h5>
+            Carnegie Mellon University, USA &amp; Inria Paris, France
+            <h5 class="mt-2">Biography</h5>
+            Justine Cassell is jointly appointed as Dean's Professor in CMU's School of Computer
+            Science and Senior Researcher at Inria Paris, where she also holds a chair in
+            Artificial Intelligence in the PRAIRIE institute. She has received the MIT Edgerton
+            Prize, the Anita Borg Institute Women of Vision award, the AAMAS Test of Time paper
+            award, and the National Academy of Sciences Henry and Bryna David Prize. She is a
+            fellow of the AAAS, the Royal Academy of Scotland, and the ACM, and is a co-founder of
+            EqualAI.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================== -->
+    <!-- Accepted Papers                                             -->
+    <!-- ========================================================== -->
+    <hr class="m-0">
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="accepted-papers">
+      <div class="w-100">
+        <h2 class="mb-5">Accepted Papers</h2>
+        <p class="placeholder-note">To be announced after the review process.</p>
+
+        <!-- Template:
+        <p>
+          <h4><a href="https://openreview.net/forum?id=XXX" target="_blank">Paper Title</a></h4>
+          <i>Author One, Author Two, Author Three</i><br><br>
+        </p>
+        <hr>
+        -->
+      </div>
+    </section>
+
+
+    <!-- ========================================================== -->
+    <!-- Organising Committee                                        -->
+    <!-- ========================================================== -->
+    <hr class="m-0">
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="organising-committee">
+      <div class="w-100">
+        <h2 class="mb-5">Organising Committee</h2>
+
+        <h4>Workshop Organisers</h4>
+        <div class="row">
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/joanna.jpg" class="img-fluid rounded" alt="Joanna Materzyńska"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Joanna Materzyńska</a><br>
+                Meta<br>USA
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/rajmund.png" class="img-fluid rounded" alt="Rajmund Nagy"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Rajmund Nagy</a><br>
+                KTH Royal Institute of Technology<br>Sweden
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/anastasis.jpg" class="img-fluid rounded" alt="Anastasis Stathopoulos"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Anastasis Stathopoulos</a><br>
+                Meta<br>USA
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/tuanh.jpg" class="img-fluid rounded" alt="Tu Anh Nguyen"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Tu Anh Nguyen</a><br>
+                Meta<br>France
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/sindhu.jpg" class="img-fluid rounded" alt="Sindhu B. Hegde"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Sindhu B. Hegde</a><br>
+                University of Oxford<br>UK
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/zeyi.jpg" class="img-fluid rounded" alt="Zeyi Zhang"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Zeyi Zhang</a><br>
+                Peking University<br>China
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/leore.jpg" class="img-fluid rounded" alt="Leore Bensabath"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Leore Bensabath</a><br>
+                École des Ponts<br>France
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/gustav.jpeg" class="img-fluid rounded" alt="Gustav Eje Henter"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="https://people.kth.se/~ghe/" target="_blank" style="font-weight: bold;">Gustav Eje Henter</a><br>
+                KTH Royal Institute of Technology &amp; Motorica AB<br>Sweden
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/neff.jpg" class="img-fluid rounded" alt="Michael Neff"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Michael Neff</a><br>
+                University of California, Davis<br>USA
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+        <h4 class="mt-4">GENEA Challenge Organisers</h4>
+        <div class="row">
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/youngwoo.jpg" class="img-fluid rounded" alt="Youngwoo Yoon"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Youngwoo Yoon</a><br>
+                ETRI<br>South Korea
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/taras.jpg" class="img-fluid rounded" alt="Taras Kucherenko"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="https://svito-zar.github.io/" target="_blank" style="font-weight: bold;">Taras Kucherenko</a><br>
+                Electronic Arts (SEED)<br>Sweden
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/teodor.jpg" class="img-fluid rounded" alt="Teodor Nikolov"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Teodor Nikolov</a><br>
+                Motorica AB<br>Sweden
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div class="row">
+              <div class="col-5">
+                <!-- <img src="img/mihail.jpg" class="img-fluid rounded" alt="Mihail Tsakov"> -->
+                <p class="placeholder-note">[photo]</p>
+              </div>
+              <div class="col-7">
+                <a href="#" target="_blank" style="font-weight: bold;">Mihail Tsakov</a><br>
+                Liahim<br>Netherlands
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================== -->
+    <!-- Contact                                                     -->
+    <!-- ========================================================== -->
+    <hr class="m-0">
+    <section class="iva-section p-3 p-lg-5 d-flex align-items-center" id="contact">
+      <div class="w-100">
+        <h2 class="mb-5">Contact</h2>
+        <p>
+          For any questions about the workshop, please contact:
+          <a href="mailto:jomat@meta.com">jomat@meta.com</a>.
+        </p>
+        <p class="placeholder-note">
+          [Optional: add a Slack invite, mailing list, or X/social link, similar to the GENEA
+          community page.]
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Workshop scrollspy + native smooth-scroll (replaces iva.min.js) -->
+  <script src="js/scrollspy.js"></script>
+
+</body>
+
+</html>
