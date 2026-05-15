@@ -211,8 +211,15 @@ a:hover {
   /* Nav menu vertically centered between brand and the bottom of the
      sidebar (auto top + auto bottom = centered). */
   #sideNav .navbar-collapse {
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+    flex: 1;
+    display: flex !important;
+    flex-direction: column;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  #sideNav .navbar-collapse .navbar-nav {
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
 
@@ -426,30 +433,59 @@ code {
    Use the classes below in index.html as needed.
    ============================================================ */
 
-/* --- Organiser cards (apply on the existing .col-sm-12.col-md-6
-   wrappers inside #organising-committee — no markup change needed) --- */
-#organising-committee .col-md-6 > .row {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 18px;
-  padding: 14px;
-  margin: 0 0 10px 0;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+/* --- 5-column grid for organiser cards ------------------------------- */
+@media (min-width: 768px) {
+  .col-five {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
 }
-#organising-committee .col-md-6 > .row:hover {
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.12);
-  transform: translateY(-2px);
+
+/* --- Organiser cards ------------------------------------------------- */
+.organiser-card {
+  background: #fff;
+  border: 1px solid #f3f4f6;
+  border-radius: 12px;
+  padding: 16px 10px 14px;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.2s ease;
 }
-#organising-committee .col-md-6 > .row a {
+.organiser-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+}
+.organiser-card img,
+.organiser-card .placeholder-avatar {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+  border-radius: 50% !important;
+  background: #f9fafb;
+  box-shadow: none;
+}
+@media (min-width: 576px) {
+  .organiser-card img,
+  .organiser-card .placeholder-avatar {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+.organiser-card .placeholder-avatar {
+  border: 2px dashed #d1d5db;
+}
+.organiser-card a {
   color: var(--isa-text);
-  transition: color 0.2s ease;
+  font-size: 0.9rem;
 }
-#organising-committee .col-md-6 > .row:hover a {
+.organiser-card:hover a {
   color: var(--isa-blue-700);
 }
-/* Hide the now-redundant <hr> separators inside the card grid */
-#organising-committee .col-md-6 > hr {
-  display: none;
+.organiser-card small {
+  color: var(--isa-text-muted);
+  line-height: 1.35;
+  display: block;
+  margin-top: 2px;
+  font-size: 0.78rem;
 }
 
 /* --- CTA button: pill, white-on-blue, hover inverts -------- */
