@@ -1,4 +1,4 @@
-/* Interactive Social Avatars — scrollspy
+/* Interactive Social Avatars - scrollspy
  *
  * - Highlights the active nav link & section card as the user scrolls.
  * - Updates the small "current section" pill in the mobile top bar.

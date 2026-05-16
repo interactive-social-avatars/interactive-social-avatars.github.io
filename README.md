@@ -1,4 +1,4 @@
-# Interactive Social Avatars — ECCV 2026 Workshop
+# Interactive Social Avatars - ECCV 2026 Workshop
 
 Source for the workshop website hosted at
 **https://interactive-social-avatars.github.io/**.
@@ -17,7 +17,10 @@ Generation Challenge**.
 ├── js/
 │   └── scrollspy.js    # Active-section highlight + smooth scroll
 ├── vendor/             # Bootstrap 4 + jQuery (only files actually used)
-├── img/                # Workshop logo, speaker / organiser portraits
+├── img/                # Image assets
+│   ├── assets/         # Logos, hero, favicon, banners
+│   ├── speakers/       # Invited-speaker portraits
+│   └── organisers/     # Workshop & GENEA organiser portraits
 ├── README.md           # This file
 └── .gitignore
 ```
@@ -61,7 +64,7 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-That's it — no `npm install`, no SCSS, no bundler.
+That's it - no `npm install`, no SCSS, no bundler.
 
 ## Credits
 

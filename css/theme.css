@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Interactive Social Avatars — Theme overrides
+   Interactive Social Avatars - Theme overrides
    - Blue / sky-blue palette (overrides the GENEA burgundy)
    - Modern floating oval "blobs" + glassmorphism cards
    - Add to index.html *after* css/iva.min.css
@@ -69,14 +69,6 @@ a:hover {
 }
 
 /* ----- Floating decorative blobs --------------------------------------- */
-.isa-blobs {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
-}
-
 .isa-blob {
   position: absolute;
   border-radius: 50%;
@@ -195,7 +187,7 @@ a:hover {
 
 /* Desktop sidebar: position the brand text neatly near the top (with
    some breathing room) and vertically center the nav links in the
-   remaining space — matching the original GENEA template feel. */
+   remaining space - matching the original GENEA template feel. */
 @media (min-width: 992px) {
   #sideNav .navbar-brand {
     display: block !important;
@@ -252,7 +244,7 @@ a:hover {
   background: rgba(255, 255, 255, 0.28);
   outline: none;
 }
-/* Hamburger icon after the text — taps the same dropdown. */
+/* Hamburger icon after the text - taps the same dropdown. */
 .navbar .current-section::after {
   content: "☰";
   font-size: 1em;
@@ -269,7 +261,7 @@ a:hover {
   .navbar .current-section.has-section {
     display: inline-flex;
   }
-  /* The pill duplicates what the hamburger does — hide the hamburger
+  /* The pill duplicates what the hamburger does - hide the hamburger
      whenever the pill is on screen so the brand has more room. */
   .navbar .current-section.has-section ~ .navbar-toggler {
     display: none;
@@ -344,7 +336,7 @@ section.iva-section#home {
   hyphens: auto;
   -webkit-hyphens: auto;
 }
-/* Don't justify single-line paragraphs (e.g. dates, captions) on mobile —
+/* Don't justify single-line paragraphs (e.g. dates, captions) on mobile -
    it can produce ugly oversized gaps. */
 @media (max-width: 575.98px) {
   .iva-section p,
@@ -375,6 +367,34 @@ section.iva-section#home {
   font-style: italic;
   font-size: 0.85em;
   margin: 0;
+}
+
+/* ----- Invited speaker portraits -------------------------------------- */
+/* Override Bootstrap column widths only inside the speakers section so the
+   photo gets a fixed 200px column instead of shrinking to ~16% of the row. */
+@media (min-width: 768px) {
+  #invited-speakers .row > .col-md-2 {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+  #invited-speakers .row > .col-md-10 {
+    flex: 1 1 0;
+    max-width: calc(100% - 200px);
+  }
+}
+/* Cap the photo so it never blows up on mobile (col-12). */
+#invited-speakers .row > [class*="col-"] img.img-fluid {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin-bottom: 12px;
+}
+@media (max-width: 767.98px) {
+  #invited-speakers .row > [class*="col-"] img.img-fluid {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Real photos (when added) get matching rounded styling */
@@ -458,6 +478,8 @@ code {
 .organiser-card .placeholder-avatar {
   width: 7rem;
   height: 7rem;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 50% !important;
   background: #f9fafb;
@@ -468,6 +490,16 @@ code {
   .organiser-card .placeholder-avatar {
     width: 10rem;
     height: 10rem;
+  }
+}
+/* When the 5-column grid kicks in, cap avatar size so it never
+   overflows its narrow card on medium viewports (768px–~1100px). */
+@media (min-width: 768px) {
+  .organiser-card img,
+  .organiser-card .placeholder-avatar {
+    width: 100%;
+    height: auto;
+    max-width: 10rem;
   }
 }
 .organiser-card .placeholder-avatar {
@@ -532,4 +564,42 @@ code {
   text-transform: uppercase;
   vertical-align: middle;
   margin-left: 6px;
+}
+
+/* ----- Hero banner with overlay --------------------------------------- */
+.hero-banner {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(17, 24, 39, 0.15);
+  isolation: isolate;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(12px, 2.5vw, 24px);
+  pointer-events: none;
+}
+.hero-banner-overlay > * { pointer-events: auto; }
+.hero-pill {
+  display: inline-block;
+  width: fit-content;
+  background: rgba(37, 99, 235, 0.92);
+  color: #fff !important;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: clamp(0.72rem, 1.2vw, 0.95rem);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
