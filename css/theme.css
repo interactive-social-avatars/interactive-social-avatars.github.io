@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5 {
    overflowing/wrapping awkwardly. iva.min.css sets h1=4rem (and 6rem at
    ≥1200px), which is way too big on phones. */
 h1 {
-  font-size: clamp(2rem, 8vw, 4rem) !important;
+  font-size: clamp(2.5rem, 10vw, 4rem) !important;
   line-height: 1.05 !important;
 }
 @media (min-width: 1200px) {
@@ -70,7 +70,7 @@ h2 {
   line-height: 1.1 !important;
 }
 h3 {
-  font-size: clamp(1.25rem, 4vw, 2rem) !important;
+  font-size: clamp(1.5rem, 5vw, 2rem) !important;
   line-height: 1.15 !important;
 }
 
@@ -346,6 +346,7 @@ section.iva-section#home {
 .subheading {
   color: var(--isa-text-muted);
   font-style: italic;
+  font-size: clamp(0.95rem, 3vw, 1.5rem) !important;
 }
 
 /* ----- Body text: justified paragraphs --------------------------------- */
